@@ -14,7 +14,7 @@ from src.calculator import Calculator
                           ])
 def test_add_positive(a, b, extend_result):
     calc = Calculator()
-    calc.add(a, b) == extend_result
+    assert calc.add(a, b) == extend_result
 
 
 @pytest.mark.parametrize('a, b, extend_result',
@@ -25,8 +25,3 @@ def test_add_negative(a, b, extend_result):
     calc = Calculator()
     with extend_result:
         assert calc.add(a, b) == extend_result
-    # try:
-    #     calc.add(a, b) == extend_result
-    #     assert False
-    # except:
-    #     assert 'Куда пишется эта хрень???'
