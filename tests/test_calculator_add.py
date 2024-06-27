@@ -19,7 +19,11 @@ def test_add_positive(a, b, extend_result):
 
 @pytest.mark.parametrize('a, b, extend_result',
                          [(None, None, pytest.raises(TypeError)),
-                          ('', '', pytest.raises(AssertionError))
+                          ('', '', pytest.raises(AssertionError)),
+                          (1, None, pytest.raises(TypeError)),
+                          (None, 1, pytest.raises(TypeError)),
+                          (1, '', pytest.raises(TypeError)),
+                          ('', 1, pytest.raises(TypeError))
                           ])
 def test_add_negative(a, b, extend_result):
     calc = Calculator()
